@@ -232,7 +232,7 @@ class SettingsWindow(QMainWindow):
 class TimerWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
+        
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
         self.setWindowOpacity(float(SETTINGS.value("Opacity", 0.5)))
         self.setWindowIcon(QIcon(os.path.join(DIRECTORY, "Resources", "icons.ico")))
@@ -325,6 +325,7 @@ class TimerWindow(QMainWindow):
         self.move(int(SETTINGS.value("TimerPosX", 0)), int(SETTINGS.value("TimerPosY", 0)))
 
         self.right_clicked = False
+        self.reset = False
         self.stop_timer = True
         self.timestamp_ms = round(time.time() * 1000)
         self.stopped_time_at = self.timestamp_ms
@@ -367,6 +368,16 @@ class TimerWindow(QMainWindow):
                     utils.set_theme_color(self.world_name, SETTINGS)
                 else:
                     self.world_name.setText("")
+
+
+                if level_data["igt"] <= 5 and self.reset == False:
+                    self.reset = True
+                    self.stop_timer = False
+                    self.rta_reset_hotkey_pressed()
+                
+                if level_data["igt"] > 5 and self.reset == True:
+                    self.reset = False
+                    
 
                 if level_data["seen_credits"] and bool(int(SETTINGS.value("AutoStopTimers", 0))):
                     if not self.stopped_rta_after_credits:
