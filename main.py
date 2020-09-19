@@ -261,7 +261,10 @@ class TimerWindow(QMainWindow):
             self.rta = QLabel("00:00.000")
         self.rta.setAlignment(Qt.AlignCenter)
         self.rta.setStyleSheet(f"color: {MC_COLORS['red']};")
-        self.rta.setFont(self.large_font)
+        if bool(int(SETTINGS.value("IGTTimer", 1))):
+            self.rta.setFont(self.large_font)
+        else:
+            self.rta.setFont(self.medium_font)
 
         if bool(int(SETTINGS.value("ShowHours", 1))):
             self.igt = QLabel("--:--:--.---")
