@@ -40,6 +40,14 @@ The timer reads the in-game time from the world (1.7.2+) or game (1.6.4 and earl
 
 If you still experience issues or have any other questions, you can message me on Discord at NinjaSnail1080#8581 or [open an issue here](https://github.com/NinjaSnail1080/mc-universal-in-game-timer/issues).
 
+For some people, the timer will crash on macOS if you set hotkeys.  If this happens to you, you can reset your hotkeys as follows:
+
+1. Open Terminal.app
+2. Run `rm ~/Library/Preferences/com.minecraft-universal-in-game-timer.plist`
+3. Run `killall cfprefsd`
+
+You should be able to open the timer again, provided that you don't attempt to set hotkeys again.
+
 ---
 
 That's about it. Good luck with your speedrun!
