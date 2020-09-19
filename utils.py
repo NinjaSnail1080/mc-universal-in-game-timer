@@ -52,7 +52,7 @@ def convert_hotkey(hotkey):
 
     for key in split_hotkey:
         if sys.platform == "darwin":
-            key = key.replace("Ctrl", "cmd").replace("Meta", "ctrl")
+            key = key.lower().replace("ctrl", "cmd").replace("meta", "ctrl")
 
         key_list = key.split("+")
         for h in key_list.copy():
