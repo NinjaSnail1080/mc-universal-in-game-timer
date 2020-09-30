@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>450</width>
-    <height>550</height>
+    <height>575</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>450</width>
-    <height>550</height>
+    <height>575</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>450</width>
-    <height>550</height>
+    <height>575</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -27,24 +27,17 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="12" column="0" colspan="8" alignment="Qt::AlignRight|Qt::AlignVCenter">
-     <widget class="QLabel" name="rta_hotkey_text">
+    <item row="23" column="9" alignment="Qt::AlignLeft">
+     <widget class="QRadioButton" name="light_theme_button">
       <property name="text">
-       <string>RTA timer start/stop hotkey:</string>
+       <string>Light</string>
       </property>
      </widget>
     </item>
-    <item row="9" column="4" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-     <widget class="QCheckBox" name="rta_timer_check">
+    <item row="6" column="11">
+     <widget class="QPushButton" name="browse_button">
       <property name="text">
-       <string>RTA Timer</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="5" colspan="5" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-     <widget class="QCheckBox" name="world_name_check">
-      <property name="text">
-       <string>World Name/Version</string>
+       <string>Browse</string>
       </property>
      </widget>
     </item>
@@ -55,6 +48,34 @@
       </property>
      </widget>
     </item>
+    <item row="21" column="1" colspan="3" alignment="Qt::AlignRight|Qt::AlignVCenter">
+     <widget class="QLabel" name="opacity_min_text">
+      <property name="text">
+       <string>10%</string>
+      </property>
+     </widget>
+    </item>
+    <item row="21" column="11" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+     <widget class="QLabel" name="opacity_max_text">
+      <property name="text">
+       <string>100%</string>
+      </property>
+     </widget>
+    </item>
+    <item row="22" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
+     <widget class="QLabel" name="theme_text">
+      <property name="text">
+       <string>Theme</string>
+      </property>
+     </widget>
+    </item>
+    <item row="21" column="4" colspan="7">
+     <widget class="QSlider" name="opacity_slider">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
     <item row="9" column="10" colspan="2" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
      <widget class="QCheckBox" name="hours_check">
       <property name="text">
@@ -62,24 +83,47 @@
       </property>
      </widget>
     </item>
-    <item row="21" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
-     <widget class="QLabel" name="theme_text">
+    <item row="9" column="5" colspan="5" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+     <widget class="QCheckBox" name="world_name_check">
       <property name="text">
-       <string>Theme</string>
+       <string>World Name/Version</string>
       </property>
      </widget>
     </item>
-    <item row="22" column="4" alignment="Qt::AlignRight">
+    <item row="13" column="8" colspan="3" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+     <widget class="QKeySequenceEdit" name="set_rta_hotkey"/>
+    </item>
+    <item row="14" column="8" colspan="3" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+     <widget class="QKeySequenceEdit" name="set_rta_reset_hotkey"/>
+    </item>
+    <item row="0" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
+     <widget class="QLabel" name="welcome_text">
+      <property name="text">
+       <string>Welcome to the Universal In-Game Timer for Minecraft!</string>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+     <widget class="QCheckBox" name="auto_stop_check">
+      <property name="text">
+       <string>Automatically stop both timers if End Poem is triggered (1.12+ only)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="15" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
+     <widget class="QLabel" name="opacity_text">
+      <property name="text">
+       <string>Opacity</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0" colspan="11">
+     <widget class="QLineEdit" name="browse_field"/>
+    </item>
+    <item row="23" column="4" alignment="Qt::AlignRight">
      <widget class="QRadioButton" name="dark_theme_button">
       <property name="text">
        <string>Dark</string>
-      </property>
-     </widget>
-    </item>
-    <item row="11" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-     <widget class="QCheckBox" name="auto_stop_check">
-      <property name="text">
-       <string>Auto stop timers if End Poem is triggered (1.12+ singleplayer only)</string>
       </property>
      </widget>
     </item>
@@ -97,27 +141,10 @@
       </property>
      </widget>
     </item>
-    <item row="29" column="0" colspan="12">
+    <item row="30" column="0" colspan="12">
      <widget class="QPushButton" name="continue_button">
       <property name="text">
        <string>Continue</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0" colspan="11">
-     <widget class="QLineEdit" name="browse_field"/>
-    </item>
-    <item row="0" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
-     <widget class="QLabel" name="welcome_text">
-      <property name="text">
-       <string>Welcome to the Universal In-Game Timer for Minecraft!</string>
-      </property>
-     </widget>
-    </item>
-    <item row="14" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
-     <widget class="QLabel" name="opacity_text">
-      <property name="text">
-       <string>Opacity</string>
       </property>
      </widget>
     </item>
@@ -128,53 +155,33 @@
       </property>
      </widget>
     </item>
-    <item row="20" column="4" colspan="7">
-     <widget class="QSlider" name="opacity_slider">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="20" column="11" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-     <widget class="QLabel" name="opacity_max_text">
-      <property name="text">
-       <string>100%</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="11">
-     <widget class="QPushButton" name="browse_button">
-      <property name="text">
-       <string>Browse</string>
-      </property>
-     </widget>
-    </item>
-    <item row="22" column="9" alignment="Qt::AlignLeft">
-     <widget class="QRadioButton" name="light_theme_button">
-      <property name="text">
-       <string>Light</string>
-      </property>
-     </widget>
-    </item>
-    <item row="20" column="1" colspan="3" alignment="Qt::AlignRight|Qt::AlignVCenter">
-     <widget class="QLabel" name="opacity_min_text">
-      <property name="text">
-       <string>10%</string>
-      </property>
-     </widget>
-    </item>
-    <item row="12" column="8" colspan="3" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-     <widget class="QKeySequenceEdit" name="set_rta_hotkey"/>
-    </item>
     <item row="13" column="0" colspan="8" alignment="Qt::AlignRight|Qt::AlignVCenter">
+     <widget class="QLabel" name="rta_hotkey_text">
+      <property name="text">
+       <string>RTA timer start/stop hotkey:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="14" column="0" colspan="8" alignment="Qt::AlignRight|Qt::AlignVCenter">
      <widget class="QLabel" name="rta_reset_hotkey_text">
       <property name="text">
        <string>RTA timer reset hotkey:</string>
       </property>
      </widget>
     </item>
-    <item row="13" column="8" colspan="3" alignment="Qt::AlignLeft|Qt::AlignVCenter">
-     <widget class="QKeySequenceEdit" name="set_rta_reset_hotkey"/>
+    <item row="9" column="4" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+     <widget class="QCheckBox" name="rta_timer_check">
+      <property name="text">
+       <string>RTA Timer</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+     <widget class="QCheckBox" name="auto_start_check">
+      <property name="text">
+       <string>Automatically start RTA timer on world load (1.7.2+ only)</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
