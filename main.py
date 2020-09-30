@@ -138,6 +138,8 @@ class SettingsWindow(QMainWindow):
         if bool(int(SETTINGS.value("ShowHours", 1))):
             self.hours_check.setChecked(True)
 
+        if bool(int(SETTINGS.value("AutoStartRTA", 0))):
+            self.auto_start_check.setChecked(True)
         if bool(int(SETTINGS.value("AutoStopTimers", 0))):
             self.auto_stop_check.setChecked(True)
 
@@ -168,10 +170,7 @@ class SettingsWindow(QMainWindow):
         else:
             self.light_theme_button.setChecked(True)
 
-        if sys.platform == "darwin":
-            self.continue_button.setText("Save  (double-click)") #? idk why this bug exists
-        else:
-            self.continue_button.setText("Save")
+        self.continue_button.setText("Save")
         self.continue_button.clicked.connect(self.save_and_exit_settings)
 
         frame = self.frameGeometry()
@@ -212,6 +211,7 @@ class SettingsWindow(QMainWindow):
         SETTINGS.setValue("RTATimer", int(self.rta_timer_check.isChecked()))
         SETTINGS.setValue("ShowWorldName", int(self.world_name_check.isChecked()))
         SETTINGS.setValue("ShowHours", int(self.hours_check.isChecked()))
+        SETTINGS.setValue("AutoStartRTA", int(self.auto_start_check.isChecked()))
         SETTINGS.setValue("AutoStopTimers", int(self.auto_stop_check.isChecked()))
 
         SETTINGS.setValue("RTAHotkey", self.rta_hotkey)
@@ -232,7 +232,7 @@ class SettingsWindow(QMainWindow):
 class TimerWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
         self.setWindowOpacity(float(SETTINGS.value("Opacity", 0.5)))
         self.setWindowIcon(QIcon(os.path.join(DIRECTORY, "Resources", "icons.ico")))
@@ -372,15 +372,14 @@ class TimerWindow(QMainWindow):
                 else:
                     self.world_name.setText("")
 
+                if bool(int(SETTINGS.value("AutoStartRTA", 1))):
+                    if level_data["igt"] <= 5 and self.reset == False:
+                        self.reset = True
+                        self.stop_timer = False
+                        self.rta_reset_hotkey_pressed()
 
-                if level_data["igt"] <= 5 and self.reset == False:
-                    self.reset = True
-                    self.stop_timer = False
-                    self.rta_reset_hotkey_pressed()
-                
-                if level_data["igt"] > 5 and self.reset == True:
-                    self.reset = False
-                    
+                    if level_data["igt"] > 5 and self.reset == True:
+                        self.reset = False
 
                 if level_data["seen_credits"] and bool(int(SETTINGS.value("AutoStopTimers", 0))):
                     if not self.stopped_rta_after_credits:
