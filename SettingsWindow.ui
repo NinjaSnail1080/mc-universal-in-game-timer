@@ -130,7 +130,7 @@
     <item row="7" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignTop">
      <widget class="QLabel" name="browse_leave_empty_text">
       <property name="text">
-       <string>(If left empty, it'll look for the default Minecraft directory)</string>
+       <string>(If left empty it'll look for the default Minecraft directory)</string>
       </property>
      </widget>
     </item>
@@ -151,7 +151,7 @@
     <item row="2" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
      <widget class="QLabel" name="browse_text">
       <property name="text">
-       <string>Select your Minecraft directory, unless it's already filled in below:</string>
+       <string>Select your Minecraft directory unless it's already filled in below:</string>
       </property>
      </widget>
     </item>
