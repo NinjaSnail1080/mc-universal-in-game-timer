@@ -106,7 +106,7 @@
     <item row="12" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
      <widget class="QCheckBox" name="auto_stop_check">
       <property name="text">
-       <string>Automatically stop both timers if End Poem is triggered (1.12+ only)</string>
+       <string>Automatically stop both timers if End Poem is triggered (1.13+ only)</string>
       </property>
      </widget>
     </item>
