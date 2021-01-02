@@ -360,7 +360,7 @@ class TimerWindow(QMainWindow):
                 self.global_hotkey_listener = keyboard.GlobalHotKeys(global_hotkeys)
                 self.global_hotkey_listener.start()
 
-            self.rta_timer.start(1)
+            self.rta_timer.start()
 
     def update_igt(self):
 
