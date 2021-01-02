@@ -1,4 +1,4 @@
 PyQt5
 nbt
 python-rapidjson
-pynput==1.6.8
+pynput
