@@ -63,7 +63,7 @@ def get_last_played_level():
     mc_saves = os.path.join(mc_dir, "saves")
 
     worlds_recently_modified = sorted([os.path.join(mc_saves, s) for s in os.listdir(mc_saves)], key=os.path.getmtime, reverse=True)
-    for w in worlds_recently_modified.copy()[:5]:
+    for w in worlds_recently_modified.copy()[:3]:
         try:
             world = w
             level = NBTFile(os.path.join(world, "level.dat"))
