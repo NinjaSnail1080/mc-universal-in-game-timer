@@ -183,6 +183,16 @@
       </property>
      </widget>
     </item>
+    <item row="10" column="0" colspan="8" alignment="Qt::AlignRight|Qt::AlignVCenter">
+     <widget class="QLabel" name="rta_interval_text">
+      <property name="text">
+       <string>RTA update interval (default: 0ms):</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="8" colspan="3">
+     <widget class="QLineEdit" name="rta_interval_field"/>
+    </item>
    </layout>
   </widget>
  </widget>

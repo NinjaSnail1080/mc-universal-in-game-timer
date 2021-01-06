@@ -138,6 +138,8 @@ class SettingsWindow(QMainWindow):
         if bool(int(SETTINGS.value("ShowHours", 1))):
             self.hours_check.setChecked(True)
 
+        self.rta_interval_field.setText(SETTINGS.value("RTAInterval", "0"))
+
         if bool(int(SETTINGS.value("AutoStartRTA", 0))):
             self.auto_start_check.setChecked(True)
         if bool(int(SETTINGS.value("AutoStopTimers", 0))):
@@ -214,6 +216,11 @@ class SettingsWindow(QMainWindow):
         SETTINGS.setValue("AutoStartRTA", int(self.auto_start_check.isChecked()))
         SETTINGS.setValue("AutoStopTimers", int(self.auto_stop_check.isChecked()))
 
+        if self.rta_interval_field.text() == "":
+            SETTINGS.setValue("RTAInterval", "0")
+        else:
+            SETTINGS.setValue("RTAInterval", self.rta_interval_field.text())
+
         SETTINGS.setValue("RTAHotkey", self.rta_hotkey)
         SETTINGS.setValue("RTAResetHotkey", self.rta_reset_hotkey)
 
@@ -254,6 +261,13 @@ class TimerWindow(QMainWindow):
         self.rta_timer = QTimer()
         self.rta_timer.setTimerType(Qt.PreciseTimer)
         self.rta_timer.timeout.connect(self.update_rta)
+
+        if SETTINGS.value("RTAInterval", None) is None:
+            print(SETTINGS.value("RTAInterval"))
+            self.rta_interval = 0
+        else:
+            self.rta_interval = int(float(SETTINGS.value("RTAInterval")))
+        self.rta_timer.setInterval(self.rta_interval)
 
         if bool(int(SETTINGS.value("ShowHours", 1))):
             self.rta = QLabel("00:00:00.000")
