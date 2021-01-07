@@ -27,7 +27,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="23" column="9" alignment="Qt::AlignLeft">
+    <item row="24" column="9" alignment="Qt::AlignLeft">
      <widget class="QRadioButton" name="light_theme_button">
       <property name="text">
        <string>Light</string>
@@ -48,28 +48,28 @@
       </property>
      </widget>
     </item>
-    <item row="21" column="1" colspan="3" alignment="Qt::AlignRight|Qt::AlignVCenter">
+    <item row="22" column="1" colspan="3" alignment="Qt::AlignRight|Qt::AlignVCenter">
      <widget class="QLabel" name="opacity_min_text">
       <property name="text">
        <string>10%</string>
       </property>
      </widget>
     </item>
-    <item row="21" column="11" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+    <item row="22" column="11" alignment="Qt::AlignLeft|Qt::AlignVCenter">
      <widget class="QLabel" name="opacity_max_text">
       <property name="text">
        <string>100%</string>
       </property>
      </widget>
     </item>
-    <item row="22" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
+    <item row="23" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
      <widget class="QLabel" name="theme_text">
       <property name="text">
        <string>Theme</string>
       </property>
      </widget>
     </item>
-    <item row="21" column="4" colspan="7">
+    <item row="22" column="4" colspan="7">
      <widget class="QSlider" name="opacity_slider">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -90,10 +90,10 @@
       </property>
      </widget>
     </item>
-    <item row="13" column="8" colspan="3" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+    <item row="14" column="8" colspan="3" alignment="Qt::AlignLeft|Qt::AlignVCenter">
      <widget class="QKeySequenceEdit" name="set_rta_hotkey"/>
     </item>
-    <item row="14" column="8" colspan="3" alignment="Qt::AlignLeft|Qt::AlignVCenter">
+    <item row="15" column="8" colspan="3" alignment="Qt::AlignLeft|Qt::AlignVCenter">
      <widget class="QKeySequenceEdit" name="set_rta_reset_hotkey"/>
     </item>
     <item row="0" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
@@ -103,14 +103,14 @@
       </property>
      </widget>
     </item>
-    <item row="12" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+    <item row="13" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
      <widget class="QCheckBox" name="auto_stop_check">
       <property name="text">
        <string>Automatically stop both timers if End Poem is triggered (1.13+ only)</string>
       </property>
      </widget>
     </item>
-    <item row="15" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
+    <item row="16" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignBottom">
      <widget class="QLabel" name="opacity_text">
       <property name="text">
        <string>Opacity</string>
@@ -120,7 +120,7 @@
     <item row="6" column="0" colspan="11">
      <widget class="QLineEdit" name="browse_field"/>
     </item>
-    <item row="23" column="4" alignment="Qt::AlignRight">
+    <item row="24" column="4" alignment="Qt::AlignRight">
      <widget class="QRadioButton" name="dark_theme_button">
       <property name="text">
        <string>Dark</string>
@@ -141,7 +141,7 @@
       </property>
      </widget>
     </item>
-    <item row="30" column="0" colspan="12">
+    <item row="31" column="0" colspan="12">
      <widget class="QPushButton" name="continue_button">
       <property name="text">
        <string>Continue</string>
@@ -155,14 +155,14 @@
       </property>
      </widget>
     </item>
-    <item row="13" column="0" colspan="8" alignment="Qt::AlignRight|Qt::AlignVCenter">
+    <item row="14" column="0" colspan="8" alignment="Qt::AlignRight|Qt::AlignVCenter">
      <widget class="QLabel" name="rta_hotkey_text">
       <property name="text">
        <string>RTA timer start/stop hotkey:</string>
       </property>
      </widget>
     </item>
-    <item row="14" column="0" colspan="8" alignment="Qt::AlignRight|Qt::AlignVCenter">
+    <item row="15" column="0" colspan="8" alignment="Qt::AlignRight|Qt::AlignVCenter">
      <widget class="QLabel" name="rta_reset_hotkey_text">
       <property name="text">
        <string>RTA timer reset hotkey:</string>
@@ -176,7 +176,7 @@
       </property>
      </widget>
     </item>
-    <item row="11" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+    <item row="12" column="0" colspan="12" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
      <widget class="QCheckBox" name="auto_start_check">
       <property name="text">
        <string>Automatically start RTA timer on world load (1.7.2+ only)</string>
@@ -192,6 +192,16 @@
     </item>
     <item row="10" column="8" colspan="3">
      <widget class="QLineEdit" name="rta_interval_field"/>
+    </item>
+    <item row="11" column="0" colspan="8" alignment="Qt::AlignRight|Qt::AlignVCenter">
+     <widget class="QLabel" name="igt_interval_text">
+      <property name="text">
+       <string>IGT update interval (default: 50ms):</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="8" colspan="3">
+     <widget class="QLineEdit" name="igt_interval_field"/>
     </item>
    </layout>
   </widget>
