@@ -138,6 +138,9 @@ class SettingsWindow(QMainWindow):
         if bool(int(SETTINGS.value("ShowHours", 1))):
             self.hours_check.setChecked(True)
 
+        self.rta_interval_field.setText(SETTINGS.value("RTAInterval", "0"))
+        self.igt_interval_field.setText(SETTINGS.value("IGTInterval", "50"))
+
         if bool(int(SETTINGS.value("AutoStartRTA", 0))):
             self.auto_start_check.setChecked(True)
         if bool(int(SETTINGS.value("AutoStopTimers", 0))):
@@ -214,6 +217,16 @@ class SettingsWindow(QMainWindow):
         SETTINGS.setValue("AutoStartRTA", int(self.auto_start_check.isChecked()))
         SETTINGS.setValue("AutoStopTimers", int(self.auto_stop_check.isChecked()))
 
+        if self.rta_interval_field.text() == "":
+            SETTINGS.setValue("RTAInterval", "0")
+        else:
+            SETTINGS.setValue("RTAInterval", self.rta_interval_field.text())
+
+        if self.igt_interval_field.text() == "":
+            SETTINGS.setValue("IGTInterval", "50")
+        else:
+            SETTINGS.setValue("IGTInterval", self.igt_interval_field.text())
+
         SETTINGS.setValue("RTAHotkey", self.rta_hotkey)
         SETTINGS.setValue("RTAResetHotkey", self.rta_reset_hotkey)
 
@@ -251,9 +264,21 @@ class TimerWindow(QMainWindow):
         self.igt_timer.setTimerType(Qt.PreciseTimer)
         self.igt_timer.timeout.connect(self.update_igt)
 
+        if SETTINGS.value("IGTInterval", None) is None:
+            self.igt_interval = 50
+        else:
+            self.igt_interval = int(float(SETTINGS.value("IGTInterval")))
+        self.igt_timer.setInterval(self.igt_interval)
+
         self.rta_timer = QTimer()
         self.rta_timer.setTimerType(Qt.PreciseTimer)
         self.rta_timer.timeout.connect(self.update_rta)
+
+        if SETTINGS.value("RTAInterval", None) is None:
+            self.rta_interval = 0
+        else:
+            self.rta_interval = int(float(SETTINGS.value("RTAInterval")))
+        self.rta_timer.setInterval(self.rta_interval)
 
         if bool(int(SETTINGS.value("ShowHours", 1))):
             self.rta = QLabel("00:00:00.000")
@@ -342,7 +367,7 @@ class TimerWindow(QMainWindow):
         if not bool(int(SETTINGS.value("IGTTimer", 1))) and not bool(int(SETTINGS.value("ShowWorldName", 1))):
             self.world_name.setText("")
         else:
-            self.igt_timer.start(50)
+            self.igt_timer.start()
 
         if bool(int(SETTINGS.value("RTATimer", 0))):
             rta_hotkey = SETTINGS.value("RTAHotkey", None)
